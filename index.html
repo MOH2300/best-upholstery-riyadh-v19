@@ -19,6 +19,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JMKZ8QL"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<h1 id="dynamic-h1">أفضل مركز تنجيد سيارات بالرياض</h1>
+<p id="dynamic-desc">نحن متخصصون في تنجيد جميع أنواع السيارات بأحياء الرياض وبأقل الأسعار.</p>
+<a href="tel:+966506456497" id="dynamic-btn" class="button">اتصل بنا الآن</a>
 
     <h1>ون كار ون للفخامة - تنجيد وكاله وشد وكاله</h1>
     <div class="gallery">
@@ -2572,4 +2575,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
             </script>
         </div>
-</div></body></html>
+</div>
+    <script>
+    (function() {
+        // 1. جلب البيانات من الرابط
+        const params = new URLSearchParams(window.location.search);
+        
+        // تنظيف النصوص من الرموز (مثل - أو %20) لتحويلها لنص مقروء
+        function clean(text) {
+            if (!text) return "";
+            return decodeURIComponent(text).replace(/-/g, ' ');
+        }
+
+        // 2. استخراج المتغيرات (دعم كامل لكل مفاتيح السكربت)
+        const service  = clean(params.get('service') || params.get('q') || params.get('keyword') || 'أفضل تنجيد سيارات');
+        const car      = clean(params.get('car') || '');
+        const location = clean(params.get('location') || params.get('loc') || params.get('area') || 'الرياض');
+        const compare  = clean(params.get('compare') || '');
+        const action   = clean(params.get('action') || '');
+
+        // 3. صياغة الجملة الاحترافية
+        let finalTitle = "";
+        if (compare) {
+            finalTitle = `لماذا نحن أفضل من ${compare} في تنجيد السيارات بـ ${location}؟`;
+        } else if (car) {
+            finalTitle = `مركز ${service} لسيارات ${car} في حي ${location}`;
+        } else {
+            finalTitle = `${service} - احترافية وإتقان في ${location}`;
+        }
+
+        // 4. حقن البيانات في عناصر الصفحة
+        
+        // تغيير عنوان الصفحة في المتصفح (أهم شيء للأرشفة)
+        document.title = finalTitle + " | ضمان 5 سنوات";
+
+        // تغيير العنوان الرئيسي في الصفحة (يجب أن تضع id="dynamic-h1" في وسم الـ h1)
+        const h1Element = document.getElementById('dynamic-h1');
+        if (h1Element) h1Element.innerText = finalTitle;
+
+        // تغيير نص الوصف (يجب أن تضع id="dynamic-desc" في وسم الـ p)
+        const descElement = document.getElementById('dynamic-desc');
+        if (descElement) {
+            descElement.innerText = `هل تبحث عن ${service} ${car} في ${location}؟ نحن نقدم لك أرقى خامات الجلد الألماني والإيطالي مع ضمان حقيقي في قلب الرياض.`;
+        }
+
+        // تغيير نص زر الاتصال (اختياري)
+        const btnElement = document.getElementById('dynamic-btn');
+        if (btnElement) {
+            btnElement.innerText = `احجز موعد تنجيد ${car} الآن`;
+        }
+    })();
+</script>
+
+</body>
+</html>
